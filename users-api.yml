@@ -1,4 +1,16 @@
 spring:
+  cloud:
+    stream:
+      default-binder: kafka
+      kafka:
+        binder:
+          brokers: ${KAFKA_BROKERS}
+      bindings:
+        output:
+          binder: kafka
+          destination: user-creation
+          group: user-creation-group
+          content-type: application/json
   data:
     mongodb:
       uri: ${MONGODB_URI}
